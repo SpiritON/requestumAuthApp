@@ -18,7 +18,7 @@ type ButtonProps = {
     fontFamily?: string
     loading?: boolean
     loaderColor?: string
-    shakeTrigger?: number
+    shakeTrigger?: boolean
     disabled?: boolean
     variant?: Variant
     onPress: (event: GestureResponderEvent) => void
@@ -45,16 +45,14 @@ const Button = ({
         if (!didMountRef.current) {
             didMountRef.current = true
             return
-        }
-        if (typeof shakeTrigger === 'number') {
-            shakeValue.setValue(0)
-            Animated.sequence([
-                Animated.timing(shakeValue, { toValue: 1, duration: 50, useNativeDriver: true }),
-                Animated.timing(shakeValue, { toValue: -1, duration: 50, useNativeDriver: true }),
-                Animated.timing(shakeValue, { toValue: 1, duration: 50, useNativeDriver: true }),
-                Animated.timing(shakeValue, { toValue: 0, duration: 50, useNativeDriver: true }),
-            ]).start()
-        }
+        }   
+        shakeValue.setValue(0)
+        Animated.sequence([
+            Animated.timing(shakeValue, { toValue: 1, duration: 50, useNativeDriver: true }),
+            Animated.timing(shakeValue, { toValue: -1, duration: 50, useNativeDriver: true }),
+            Animated.timing(shakeValue, { toValue: 1, duration: 50, useNativeDriver: true }),
+            Animated.timing(shakeValue, { toValue: 0, duration: 50, useNativeDriver: true }),
+        ]).start()
     }, [shakeTrigger])
 
     return (

@@ -22,12 +22,12 @@ const SignUp = ({ navigation }: Props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
-    const [validationError, setValidationError] = useState(0)
+    const [validationError, setValidationError] = useState(false)
     const dispatch = useDispatch();
 
     const handleSignUp = async () => {
         if (!validateEmail(email) || !validatePassword(password)) {
-            setValidationError(prev => prev + 1)
+            setValidationError(prev => prev)
             return
         }
         setLoading(true)
