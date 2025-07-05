@@ -5,10 +5,10 @@ import changeNavigationBarColor from 'react-native-navigation-bar-color'
 
 type Props = {
     children: React.ReactNode
-    style?: StyleProp<ViewStyle>
+    styles?: StyleProp<ViewStyle>
 }
 
-const AppBackground = ({ children, style }: Props) => {
+const AppBackground = ({ children, styles }: Props) => {
     const theme = useTheme()
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const AppBackground = ({ children, style }: Props) => {
                 backgroundColor="transparent"
                 barStyle="light-content"
             />
-            <Container style={style}>
+            <Container style={styles}>
                 <BgBallTopRight source={require('../../../assets/FirstEllipse.png')} />
                 <BgBallCenterLeft source={require('../../../assets/SecondEllipse.png')} />
                 <BgBallBottomRight source={require('../../../assets/ThirdEllipse.png')} />

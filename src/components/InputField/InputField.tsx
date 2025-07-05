@@ -19,7 +19,7 @@ type Props = TextInputProps & {
     onChangeText: (text: string) => void
 }
 
-const LABEL_INNER_TOP = 8
+const LABEL_TOP_OFFSET = 8
 const LABEL_ANIMATION_OFFSET = 10
 
 const InputField: React.FC<Props> = ({
@@ -43,12 +43,12 @@ const InputField: React.FC<Props> = ({
     const borderColor = isActive ? theme.colors.red : theme.colors.grey
     const secureIconColor = secure ? theme.colors.grey : theme.colors.red
 
-    const labelStyle = {
+    const labelStyles = {
         top: animatedLabelRef.interpolate({
             inputRange: [0, 1],
             outputRange: [
                 theme.input.height / 2 - LABEL_ANIMATION_OFFSET,
-                LABEL_INNER_TOP,
+                LABEL_TOP_OFFSET,
             ],
         }),
         fontSize: animatedLabelRef.interpolate({
@@ -111,7 +111,7 @@ const InputField: React.FC<Props> = ({
                 {inputLeftIcon()}
                 <InputContent>
                     <AnimatedLabel
-                        style={labelStyle}
+                        style={labelStyles}
                         pointerEvents="none"
                     >
                         {label}
@@ -151,13 +151,18 @@ const InputField: React.FC<Props> = ({
 export default InputField
 
 const InputWrap = styled.View`
-    width: 100%;
-    height: ${({ theme }) => theme.input.height}px;
-    flex-direction: row;
-    align-items: center;
-    border-radius: ${({ theme }) => theme.borderRadius.medium}px;
-    border-width: 1px;
-    background-color: transparent;
+    ${({ theme }) => {
+        const { input, borderRadius } = theme
+        return `
+            width: 100%;
+            height: ${input.height}px;
+            flex-direction: row;
+            align-items: center;
+            border-radius: ${borderRadius.medium}px;
+            border-width: 1px;
+            background-color: transparent;
+        `
+    }}
 `
 
 const IconSide = styled.View`

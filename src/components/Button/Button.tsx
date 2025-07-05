@@ -39,11 +39,11 @@ const Button = ({
 }: ButtonProps) => {
     const theme = useTheme()
     const shakeValue = useRef(new Animated.Value(0)).current
-    const didMount = useRef(false)
+    const didMountRef = useRef(false)
 
     useEffect(() => {
-        if (!didMount.current) {
-            didMount.current = true
+        if (!didMountRef.current) {
+            didMountRef.current = true
             return
         }
         if (typeof shakeTrigger === 'number') {

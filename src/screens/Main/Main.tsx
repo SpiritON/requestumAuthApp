@@ -71,25 +71,40 @@ const CenterContent = styled.View`
 `
 
 const Subtext = styled.Text`
-    color: ${({ theme }) => theme.textColor.secondary};
-    font-size: ${({ theme }) => theme.textSize.extraSmall}px;
-    font-family: ${({ theme }) => theme.fontFamily.regular};
-    margin-bottom: 8px;
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.secondary};
+            font-size: ${textSize.extraSmall}px;
+            font-family: ${fontFamily.regular};
+            margin-bottom: 8px;
+        `
+    }}
 `
 
 const Username = styled.Text`
-    color: ${({ theme }) => theme.textColor.primary};
-    font-size: ${({ theme }) => theme.textSize.large}px;
-    font-family: ${({ theme }) => theme.fontFamily.semiBold};
-    margin-bottom: 18px;
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.primary};
+            font-size: ${textSize.large}px;
+            font-family: ${fontFamily.semiBold};
+            margin-bottom: 18px;
+        `
+    }}
 `
 
 const InfoText = styled.Text`
-    color: ${({ theme }) => theme.textColor.primary};
-    font-size: ${({ theme }) => theme.textSize.medium}px;
-    font-family: ${({ theme }) => theme.fontFamily.medium};
-    margin-top: 12%;
-    margin-bottom: 8%;
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.primary};
+            font-size: ${textSize.medium}px;
+            font-family: ${fontFamily.medium};
+            margin-top: 12%;
+            margin-bottom: 8%;
+        `
+    }}
 `
 
 const ButtonBlock = styled.View`

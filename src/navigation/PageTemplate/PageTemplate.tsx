@@ -25,7 +25,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 const PageTemplate = () => {
     const dispatch = useDispatch<AppDispatch>()
     const token = useSelector((state: RootState) => state.auth.token)
-    const [checking, setChecking] = useState(true)
+    const [checkingToken, setCheckingToken] = useState(true)
 
     useEffect(() => {
         const checkToken = async () => {
@@ -44,13 +44,13 @@ const PageTemplate = () => {
                     dispatch(clearAuth())
                 }
             } finally {
-                setChecking(false)
+                setCheckingToken(false)
             }
         }
         checkToken()
     }, [dispatch])
 
-    if (checking) return <Loading />
+    if (checkingToken) return <Loading />
 
     return (
         <AppBackground>

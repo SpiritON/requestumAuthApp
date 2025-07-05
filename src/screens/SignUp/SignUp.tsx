@@ -128,7 +128,12 @@ const FooterWrapper = styled.View`
 `
 
 const FooterText = styled.Text`
-    color: ${({ theme }) => theme.textColor.primary};
-    font-size: ${({ theme }) => theme.textSize.extraSmall}px;
-    font-family: ${({ theme }) => theme.fontFamily.regular};
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.primary};
+            font-size: ${textSize.extraSmall}px;
+            font-family: ${fontFamily.regular};
+        `
+    }}
 `

@@ -24,14 +24,24 @@ const Container = styled.View`
 `
 
 const TitleText = styled.Text`
-    color: ${({ theme }) => theme.textColor.primary};
-    font-size: ${({ theme }) => theme.textSize.large}px;
-    text-transform: uppercase;
-    font-family: ${({ theme }) => theme.fontFamily.semiBold};
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.primary};
+            font-size: ${textSize.large}px;
+            text-transform: uppercase;
+            font-family: ${fontFamily.semiBold};
+        `
+    }}
 `
 
 const DescText = styled.Text`
-    color: ${({ theme }) => theme.textColor.secondary};
-    font-size: ${({ theme }) => theme.textSize.extraSmall}px;
-    font-family: ${({ theme }) => theme.fontFamily.regular};
+    ${({ theme }) => {
+        const { textColor, textSize, fontFamily } = theme
+        return `
+            color: ${textColor.secondary};
+            font-size: ${textSize.extraSmall}px;
+            font-family: ${fontFamily.regular};
+        `
+    }}
 `
