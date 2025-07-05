@@ -10,7 +10,7 @@ with beautiful animated input fields, fully themeable UI, custom buttons, Redux 
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+    git clone https://github.com/SpiritON/requestumAuthApp.git
     cd YOUR_REPO
     ```
 
