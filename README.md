@@ -1,97 +1,99 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Auth Template
 
-# Getting Started
+A modern and modular authentication template for React Native  
+with beautiful animated input fields, fully themeable UI, custom buttons, Redux integration, and a clean scalable architecture.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 🚀 Quick Start
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+1. **Clone the repository:**
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+    cd YOUR_REPO
+    ```
 
-```sh
-# Using npm
-npm start
+2. **Install dependencies:**
 
-# OR using Yarn
-yarn start
-```
+    ```bash
+    npm install
+    ```
 
-## Step 2: Build and run your app
+3. **If you are running on iOS (Mac only):**
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+    - Install CocoaPods (if not installed):
+      ```bash
+      sudo gem install cocoapods
+      ```
+    - Install pods:
+      ```bash
+      cd ios && pod install && cd ..
+      ```
 
-### Android
+4. **Start Metro Bundler (if not started automatically):**
 
-```sh
-# Using npm
-npm run android
+    ```bash
+    npm start
+    ```
 
-# OR using Yarn
-yarn android
-```
+5. **Run on Android:**
 
-### iOS
+    ```bash
+    npm run android
+    ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+   **Or run on iOS (Mac only):**
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+    ```bash
+    npm run ios
+    ```
 
-```sh
-bundle install
-```
+---
 
-Then, and every time you update your native dependencies, run:
+> _Requires Node.js (v18+), npm, and React Native CLI.  
+> For iOS, Xcode and CocoaPods must be installed.  
+> For Android, Android Studio and an emulator or device should be set up._
 
-```sh
-bundle exec pod install
-```
+---
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-```sh
-# Using npm
-npm run ios
+## ✨ Features
 
-# OR using Yarn
-yarn ios
-```
+- **Authentication & Registration Flows**
+  - Animated email and password inputs with floating label
+  - Error shake animation on invalid input
+  - AsyncStorage-based token storage
+  - Redux Toolkit user state management
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- **Beautiful, Themeable Design**
+  - All colors, typography, spacing, and sizes managed by a single theme provider
+  - Easily switch styles via the central `theme` object
+  - Built with styled-components for clear and flexible styling
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- **Reusable Custom Components**
+  - **Button:** Accepts any color, supports loading state, shake animation, and different variants ("button" and "text")
+  - **InputField:** Animated floating label, SVG icons, show/hide password (eye), keyboard type for email/password
+  - **Screen Templates:** Loader, splash screen, backgrounds with blurred PNG ellipses
 
-## Step 3: Modify your app
+- **Security & Validation**
+  - Email and password validation (customizable rules)
+  - Secure storage of authentication tokens
 
-Now that you have successfully run the app, let's make changes!
+- **Architecture & Code Quality**
+  - Modular file structure: `components/`, `store/`, `theme/`, `utils/`, `types/`
+  - Strong TypeScript typing everywhere
+  - Built for scaling and easy extension
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+🛠️ Stack
+- React Native (pure RN, not Expo)
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+- TypeScript
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- Redux Toolkit
 
-## Congratulations! :tada:
+- styled-components
 
-You've successfully run and modified your React Native App. :partying_face:
+- AsyncStorage
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- SVG icons (react-native-svg-transformer)
