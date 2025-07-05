@@ -11,7 +11,7 @@ with beautiful animated input fields, fully themeable UI, custom buttons, Redux 
 
     ```bash
     git clone https://github.com/SpiritON/requestumAuthApp.git
-    cd YOUR_REPO
+    cd requestumAuthApp 
     ```
 
 2. **Install dependencies:**
