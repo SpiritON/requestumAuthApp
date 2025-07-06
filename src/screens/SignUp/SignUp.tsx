@@ -27,7 +27,7 @@ const SignUp = ({ navigation }: Props) => {
 
     const handleSignUp = async () => {
         if (!validateEmail(email) || !validatePassword(password)) {
-            setValidationError(prev => prev)
+            setValidationError(prev => !prev)
             return
         }
         setLoading(true)

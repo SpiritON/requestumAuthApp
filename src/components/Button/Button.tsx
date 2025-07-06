@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import {
     Animated,
     Pressable,
+    Text,
     ActivityIndicator,
     GestureResponderEvent,
 } from 'react-native'
@@ -71,21 +72,13 @@ const Button = ({
             <StyledPressable
                 disabled={disabled || loading}
                 $variant={variant}
+                $backgroundColor={backgroundColor}
+                $disabled={disabled}
                 onPress={onPress}
                 style={({ pressed }) => [
-                    variant === 'button'
-                        ? {
-                            backgroundColor: disabled
-                                ? '#d3d3d3'
-                                : pressed
-                                    ? hexWithAlpha(backgroundColor, 0.8)
-                                    : backgroundColor,
-                            opacity: disabled ? 0.7 : 1,
-                        }
-                        : {
-                            backgroundColor: 'transparent',
-                            opacity: disabled ? 0.7 : 1,
-                        },
+                    variant === 'button' && pressed && {
+                        backgroundColor: hexWithAlpha(backgroundColor, 0.8)
+                    }
                 ]}
             >
                 {({ pressed }) =>
@@ -94,16 +87,10 @@ const Button = ({
                     ) : (
                         <StyledText
                             $variant={variant}
+                            $fontSize={fontSize ? fontSize : theme.textSize.small}
+                            $fontFamily={fontFamily ? fontFamily : theme.fontFamily.bold}
                             style={{
-                                color: disabled
-                                    ? '#FFFFFF'
-                                    : variant === 'text' && pressed
-                                        ? hexWithAlpha(textColor, 0.7)
-                                        : textColor,
-                                textDecorationLine: variant === 'text' ? 'underline' : 'none',
-                                opacity: disabled ? 0.7 : 1,
-                                fontFamily: fontFamily || theme.fontFamily.bold,
-                                fontSize: fontSize || theme.textSize.small,
+                                color: pressed && variant === 'text' ? hexWithAlpha(textColor, 0.7) : textColor
                             }}
                         >
                             {text}
@@ -119,14 +106,15 @@ export default Button
 
 const AnimatedContainer = styled(Animated.View)``
 
-const StyledPressable = styled(Pressable)<{ $variant: Variant }>`
+const StyledPressable = styled(Pressable)<{ $variant: Variant, $disabled: boolean, $backgroundColor: string }>`
     border-radius: ${({ theme }) => theme.button.borderRadius}px;
-    ${({ theme, $variant }) => $variant === 'button' && `
+    ${({ theme, $variant, $disabled, $backgroundColor}) => $variant === 'button' && `
         height: ${theme.button.height}px;
         align-items: center;
         justify-content: center;
         padding-vertical: ${theme.spacing.medium}px;
         padding-horizontal: ${theme.spacing.large}px;
+        background-color: ${$disabled ? '#d3d3d3' : $backgroundColor} 
     `}
     ${({ $variant }) => $variant === 'text' && `
         padding: 0;
@@ -137,5 +125,18 @@ const StyledPressable = styled(Pressable)<{ $variant: Variant }>`
     `}
 `
 
-const StyledText = styled.Text<{ $variant: Variant }>``
+const StyledText = styled(Text)<{ $variant: Variant, $fontSize: number, $fontFamily: string}>`
+    ${({$variant, $fontSize, $fontFamily}) => `
+        font-family: ${$fontFamily}; 
+        text-decoration: ${$variant === 'text' ? 'underline' : 'none'};
+        font-size: ${$fontSize}px;
+    `}
+`
+  
+       
+        
+
+
+
+        
 
